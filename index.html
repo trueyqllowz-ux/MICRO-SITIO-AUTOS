@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Catálogo UVM</title>
+    <style>
+        body { background-color: #e2e8f0; font-family: Arial, sans-serif; padding: 20px; }
+        .header { background: #1e293b; color: white; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px;}
+        .grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;}
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 220px; border-top: 5px solid #f97316; }
+        .precio { color: #16a34a; font-weight: bold; font-size: 1.3em; margin-top: 10px;}
+        .etiqueta { color: #64748b; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>Resumen de Inventario</h2>
+        <p>Total de autos registrados: <span id="total" style="font-weight:bold; font-size: 1.2em;">0</span></p>
+    </div>
+    
+    <div id="catalogo" class="grid"></div>
+
+    <script>
+        // Aquí el Frontend llama al archivo api.json simulando el microservicio
+        fetch('api.json')
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                document.getElementById('total').innerText = datos.length;
+                let html = '';
+                datos.forEach(auto => {
+                    html += `
+                    <div class="card">
+                        <h3>${auto.marca} ${auto.modelo}</h3>
+                        <p class="etiqueta">Año: ${auto.año} <br> Color: ${auto.color}</p>
+                        <p class="precio">$${auto.precio.toLocaleString()} MXN</p>
+                    </div>`;
+                });
+                document.getElementById('catalogo').innerHTML = html;
+            });
+    </script>
+</body>
+</html>
