@@ -1,5 +1,5 @@
 [
-    {"id": 1, "marca": "Nissan", "modelo": "Sentra", "año": 2022, "precio": 124000, "color": "Verde"},
-    {"id": 2, "marca": "Mercedes Benz", "modelo": "AMG", "año": 2023, "precio": 550000, "color": "Plata"},
-    {"id": 3, "marca": "Toyota", "modelo": "Yaris", "año": 2021, "precio": 240000, "color": "Rojo"}
+    {"id": 1, "marca": "Volkswagen", "modelo": "Jetta", "año": 2023, "precio": 390000, "color": "Azul Marino"},
+    {"id": 2, "marca": "Honda", "modelo": "Civic", "año": 2022, "precio": 450000, "color": "Negro Brillante"},
+    {"id": 3, "marca": "Chevrolet", "modelo": "Onix", "año": 2024, "precio": 320000, "color": "Blanco Perla"}
 ]
