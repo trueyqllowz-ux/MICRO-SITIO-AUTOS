@@ -2,26 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Catálogo UVM</title>
+    <title>Inventario Automotriz REST</title>
     <style>
-        body { background-color: #e2e8f0; font-family: Arial, sans-serif; padding: 20px; }
-        .header { background: #1e293b; color: white; padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 20px;}
-        .grid { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;}
-        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 220px; border-top: 5px solid #f97316; }
-        .precio { color: #16a34a; font-weight: bold; font-size: 1.3em; margin-top: 10px;}
-        .etiqueta { color: #64748b; font-size: 0.9em; }
+        body { background-color: #f3f4f6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; }
+        .header { background: #0f172a; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+        .grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;}
+        .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 240px; border-top: 6px solid #3b82f6; transition: transform 0.2s;}
+        .card:hover { transform: translateY(-5px); }
+        .precio { color: #059669; font-weight: 900; font-size: 1.4em; margin-top: 15px;}
+        .etiqueta { color: #4b5563; font-size: 0.95em; line-height: 1.5;}
+        h2 { margin-top: 0; }
     </style>
 </head>
 <body>
     <div class="header">
-        <h2>Resumen de Inventario</h2>
-        <p>Total de autos registrados: <span id="total" style="font-weight:bold; font-size: 1.2em;">0</span></p>
+        <h2>Panel de Control de Microservicio</h2>
+        <p>Vehículos recuperados de la base de datos: <span id="total" style="font-weight:bold; font-size: 1.3em; color: #60a5fa;">0</span></p>
     </div>
     
     <div id="catalogo" class="grid"></div>
 
     <script>
-        // Aquí el Frontend llama al archivo api.json simulando el microservicio
         fetch('api.json')
             .then(respuesta => respuesta.json())
             .then(datos => {
@@ -30,8 +31,8 @@
                 datos.forEach(auto => {
                     html += `
                     <div class="card">
-                        <h3>${auto.marca} ${auto.modelo}</h3>
-                        <p class="etiqueta">Año: ${auto.año} <br> Color: ${auto.color}</p>
+                        <h3 style="margin-top:0; color: #1e293b;">${auto.marca} ${auto.modelo}</h3>
+                        <p class="etiqueta"><strong>Año de Fabricación:</strong> ${auto.año} <br> <strong>Color:</strong> ${auto.color}</p>
                         <p class="precio">$${auto.precio.toLocaleString()} MXN</p>
                     </div>`;
                 });
