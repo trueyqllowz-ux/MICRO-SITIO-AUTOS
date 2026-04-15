@@ -1,0 +1,5 @@
+[
+    {"id": 1, "marca": "Nissan", "modelo": "Sentra", "año": 2022, "precio": 124000, "color": "Verde"},
+    {"id": 2, "marca": "Mercedes Benz", "modelo": "AMG", "año": 2023, "precio": 550000, "color": "Plata"},
+    {"id": 3, "marca": "Toyota", "modelo": "Yaris", "año": 2021, "precio": 240000, "color": "Rojo"}
+]
